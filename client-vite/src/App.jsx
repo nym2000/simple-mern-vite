@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
-
 import TasksList from './components/TaskList';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -20,7 +21,7 @@ const App = () => {
   const clickAddTask = event => {
     event.preventDefault();
 
-    fetch('/api/tasks/add', {
+    fetch(`${API_URL}/api/tasks/add`, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title: newTaskTitle }),
