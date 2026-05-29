@@ -8,7 +8,7 @@ const App = () => {
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
   const getTasks = useCallback(() => {
-    fetch('/api/tasks')
+    fetch(`${API_URL}/api/tasks`)
       .then(res => res.json())
       .then(setTasks);
   });
