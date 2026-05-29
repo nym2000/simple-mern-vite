@@ -4,7 +4,8 @@ const path = require("path");
 const bodyParser = require("body-parser");
 
 const app = express();
-
+const cors = require("cors");
+app.use(cors({ origin: process.env.FRONTEND_URL }));
 const routeTasks = require("./src/routes/tasks");
 
 // app.use(express.static(path.join(__dirname, 'client-vite/dist')));
